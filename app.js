@@ -2,7 +2,7 @@ var express    = require("express");
 var mysql      = require('mysql');
 var app = express();
 var bodyParser = require('body-parser');
-var https = require('https');
+var http = require('http');
 
 var config = require('./config/config');
 var connection = mysql.createConnection(config.database);
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/",function(req,res){
-  res.send('Hello World Intégration 62!')
+  res.send('Hello World Intégration 64!')
 });
 
 // Params : table and user id
@@ -158,7 +158,7 @@ function userByUID (uid, callback) {
 connection.connect(function(err){
   if(!err) {
       console.log("Database is connected ! \n\n");  
-        var server = https.createServer(config.ssloptions, app).listen(31337, function(){
+        var server = http.createServer(app).listen(31337, function(){
           var host = server.address().address;
           console.log('App listening at http://%s:31337', host);
         });
