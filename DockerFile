@@ -1,9 +1,0 @@
-FROM nodesource/node:latest
-
-WORKDIR /Documents/APPDIRECT/CODE/learning_minikube
-COPY . /Documents/APPDIRECT/CODE/learning_minikube
-RUN npm install --production
-
-EXPOSE 8080
-
-CMD ["node", "index.js"]
