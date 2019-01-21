@@ -22,7 +22,7 @@ app.get("/",function(req,res){
 app.get("/info", function(req, res) {
   if (req.query.id === "")
     req.query.id = "0";
-
+    
   var sql = 'SELECT * FROM ' + req.query.table + ' WHERE id = ' + req.query.id + ';';
   connection.query(sql, function(err, user) {
     if (err) res.end();
@@ -157,12 +157,13 @@ function userByUID (uid, callback) {
 // Connect to the database
 connection.connect(function(err){
   if(!err) {
-      console.log("Database is connected ! \n\n");  
-        var server = http.createServer(app).listen(31337, function(){
-          var host = server.address().address;
-          console.log('App listening at http://%s:31337', host);
-        });
+      console.log("Database is connected !");  
   } else {
       console.log(err);  
   }
+});
+
+// Start server
+app.listen(8080, function(){
+  console.log('App listening at http://%s:8080');
 });
