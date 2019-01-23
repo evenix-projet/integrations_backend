@@ -7,3 +7,6 @@ Do
 `
 docker compose up
 ` dans le root
+
+# DB
+You can go in the DB file and add the .sql file to your PHPMyAdmin. After that add the user you need.
